@@ -1,0 +1,50 @@
+.heading {
+  letter-spacing: 0px;
+  font-size: 2.3rem;
+  font-weight: 390;
+  font-family: Arial;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.About {
+  letter-spacing: 0px;
+  color: #000000;
+  margin: 10px;
+}
+
+.Us {
+  letter-spacing: 0px;
+  color: #008dc8;
+}
+
+.description {
+  text-align: left;
+}
+
+.rectangle {
+  height: 5px;
+  width: 170px;
+  background-color: #008dc8;
+  position: relative;
+  bottom: 22px;
+  float: right;
+}
+
+@media screen and (max-width: 430px) {
+  .rectangle {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .description {
+    margin-top: 10%;
+  }
+}
+
+@media screen and (max-width: 1192px) and (min-width: 992px) {
+  .description {
+    font-size: 90%;
+  }
+}

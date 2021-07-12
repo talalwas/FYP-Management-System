@@ -1,0 +1,274 @@
+@url = http://localhost:4000/api
+
+### Create a student
+@firstname1 = Jake
+@lastname1 = Hoyt
+@email1 = rookie@gmail.com
+@pswd1 = ethics
+@role1 = Student
+@reg_no1 = FA01-BCS-038
+POST {{url}}/users/register
+Content-Type: application/json
+
+{
+  "firstname": "{{firstname1}}",
+  "lastname": "{{lastname1}}",
+  "email" : "{{email1}}",
+  "pswd" : "{{pswd1}}",
+  "role" : "{{role1}}",
+  "reg_no" : "{{reg_no1}}"
+}
+
+### Create student2
+@firstname2 = Lakkar
+@lastname2 = Mustafa
+@email2 = lakkar@gmail.com
+@pswd2 = nestle
+@role2 = Student
+@reg_no2 = FA01-BCS-065
+POST {{url}}/users/register
+Content-Type: application/json
+
+{
+  "firstname": "{{firstname2}}",
+  "lastname": "{{lastname2}}",
+  "email" : "{{email2}}",
+  "pswd" : "{{pswd2}}",
+  "role" : "{{role2}}",
+  "reg_no" : "{{reg_no2}}"
+}
+
+### Create Faculty User
+@firstname3 = Max
+@lastname3 = Webber
+@email3 = max@gmail1.com
+@pswd3 = west-is-the-best
+@role3 = Faculty
+POST {{url}}/users/register
+Content-Type: application/json
+
+{
+  "firstname": "{{firstname3}}",
+  "lastname": "{{lastname3}}",
+  "email" : "{{email3}}",
+  "pswd" : "{{pswd3}}",
+  "role" : "{{role3}}"
+}
+
+### Create a Committee Member
+@firstname4 = Abdul
+@lastname4 = Kareem
+@email4 = akshahid@gmail.com
+@pswd4 = theekhai?
+@role4 = Committee
+POST {{url}}/users/register
+Content-Type: application/json
+
+{
+  "firstname": "{{firstname4}}",
+  "lastname": "{{lastname4}}",
+  "email" : "{{email4}}",
+  "pswd" : "{{pswd4}}",
+  "role" : "{{role4}}"
+}
+
+### Login User
+# @name user1
+@token1 = {{user1.response.body.token}}
+POST {{url}}/users/login
+Content-Type: application/json
+
+{
+  "email": "{{email1}}",
+  "pswd": "{{pswd1}}",
+  "role": "{{role1}}"
+}
+
+### Login User
+# @name user2
+@token2 = {{user2.response.body.token}}
+POST {{url}}/users/login
+Content-Type: application/json
+
+{
+  "email": "{{email2}}",
+  "pswd": "{{pswd2}}",
+  "role": "{{role2}}"
+}
+
+### Login Faculty
+# @name fac1
+@tokenfac1 = {{fac1.response.body.token}}
+POST {{url}}/users/login
+Content-Type: application/json
+
+{
+  "email": "{{email3}}",
+  "pswd": "{{pswd3}}",
+  "role": "{{role3}}"
+}
+
+### Login Committee Member
+# @name com1
+@tokencom1 = {{com1.response.body.token}}
+POST {{url}}/users/login
+Content-Type: application/json
+
+{
+  "email": "{{email4}}",
+  "pswd": "{{pswd4}}",
+  "role": "{{role4}}"
+}
+
+### GET Student
+GET {{url}}/users/{{user1.response.body._id}}
+
+### GET Faculty
+GET {{url}}/users/{{fac1.response.body._id}}
+
+###
+GET {{url}}/users/checkRegNo/FA01-BCS-038
+
+### CREATE a group (make empty group but make the requesting user leader)
+PUT {{url}}/group/register
+Authorization: Bearer {{token1}}
+
+### Get a group associated with a user
+GET {{url}}/group/myGroup
+Authorization: Bearer {{token1}}
+
+### Send request to user to become part of group
+# @name request1
+@request1Id = {{request1.response.body._id}}
+PUT {{url}}/group/requestUser/{{user2.response.body._id}}
+Authorization: Bearer {{token1}}
+
+### GET all requests TO user
+GET {{url}}/group/getMyRequests
+Authorization: Bearer {{token2}}
+
+### GET all requests By user
+GET {{url}}/group/getSentRequests
+Authorization: Bearer {{token1}}
+
+### Change request status by user
+PUT {{url}}/group/changeRequestStatus/{{request1Id}}/accepted
+Authorization: Bearer {{token2}}
+
+### Add Fyp Idea as a Student
+POST {{url}}/fyp/idea
+Authorization: Bearer {{token1}}
+Content-Type: application/json
+
+{
+  "title": "Water Filteration System",
+  "description": "We want to build a smart water filteration system. It would notify you when toxins in your drinking water get above recommeded levels.",
+  "area": "Machine Learning, IoT",
+  "type": "Research and Development"
+}
+
+### Add Fyp Idea as a Faculty Member
+POST {{url}}/fyp/idea
+Authorization: Bearer {{tokenfac1}}
+Content-Type: application/json
+
+{
+  "title": "Ray Tracer in Javascript",
+  "description": "Implement a Ray Tracer in html canvas. With controllable paramters.",
+  "area": "Computer Graphics",
+  "type": "Development"
+}
+
+### Add another Fyp Idea as a Faculty Member
+POST {{url}}/fyp/idea
+Authorization: Bearer {{tokenfac1}}
+Content-Type: application/json
+
+{
+  "title": "Quranic calligraphy recognition and its AR based graphical description",
+  "description": "This project proposes a camera based application that can detect the Quranic text of the short Surahs of Quran",
+  "area": "Pattern Recognition",
+  "type": "Research and Development"
+}
+
+### Get all the applications for your fyp(s)
+GET {{url}}/fyp/applications
+Authorization: Bearer {{tokenfac1}}
+
+### Get all student ideas
+GET {{url}}/fyp/idea/students
+Authorization: Bearer {{tokenfac1}}
+
+### Get all faculty ideas
+GET {{url}}/fyp/idea/faculty
+Authorization: Bearer {{token1}}
+
+### Apply to idea, NOT as a Group Leader (should give an error)
+PUT {{url}}/fyp/idea/apply/6034ee83481bae070085ebb2
+Authorization: Bearer {{token2}}
+
+### Apply to idea, as a Group Leader (should give an 204)
+PUT {{url}}/fyp/idea/apply/6035345a40cecd15e36ac0d6
+Authorization: Bearer {{token1}}
+
+### Apply to idea, as a Supervisor (should give an 204)
+PUT {{url}}/fyp/idea/apply/6034ee83481bae070085ebb2
+Authorization: Bearer {{tokenfac1}}
+
+### Accept a supervisor as your group supervisor (only group leaders can perform this)
+PUT {{url}}/group/accept/supervisor/6034ee83481bae070085ebb2/601e9197a43ffe08a5887307
+Authorization: Bearer {{token1}}
+
+### Apply to faculty idea
+PUT {{url}}/fyp/idea/apply/6034ef19481bae070085ebb8
+Authorization: Bearer {{token1}}
+
+### Accept a group for supervision
+PUT {{url}}/group/accept/6034ef19481bae070085ebb8/6021aa6e5eee5d111742e766
+Authorization: Bearer {{tokenfac1}}
+
+### Create a submission event
+POST {{url}}/submissions/event
+Authorization: Bearer {{tokenfac1}}
+Content-Type: application/json
+
+{
+  "title": "Pre Evaluation",
+  "deadline": "2021-03-05T18:42:30.332Z",
+  "total_marks": 30
+}
+
+### get all submission events
+GET {{url}}/submission/event
+Authorization: Bearer {{token1}}
+
+### Get all group's submissions as a group member
+GET {{url}}/submission/6021aa6e5eee5d111742e766
+Authorization: Bearer {{token2}}
+
+### perspective: student
+### get all the supervisors that have applied to my fyp
+GET {{url}}/fyp/applications/6034ee83481bae070085ebb2
+Authorization: Bearer {{token2}}
+
+### perspective: supervisor
+### get all the groups that have applied to my fyp
+GET {{url}}/fyp/applications/6034ef4a481bae070085ebb9
+Authorization: Bearer {{tokenfac1}}
+
+### allow supervisor to mark submission
+POST {{url}}/submission/606867415c1cb61e688811d5/60563c5cff1e1728a685d17a/mark
+Authorization: Bearer {{tokenfac1}}
+Content-Type: application/json
+
+{
+  "marks": [
+    { "user": "6043583dbf4da005cf4cf081", "obtained": 10},
+    { "user": "60607fc213b1ac0868fc410b", "obtained": 5},
+    { "user": "601e9190a43ffe08a5887306", "obtained": 0}
+  ]
+}
+
+### get all committee members
+GET {{url}}/users/all/committee
+Authorization: Bearer {{tokenfac1}}
