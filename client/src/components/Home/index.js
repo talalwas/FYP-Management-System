@@ -56,7 +56,7 @@ function Home() {
             </div>
             <div className="col-md-10 col-lg-8 col-xl-7 mx-auto">
               <form>
-                <div className="form-row">
+                {/* <div className="form-row">
                   <div className="col-12 col-md-9 mb-2 mb-md-0">
                     <input
                       type="email"
@@ -72,7 +72,7 @@ function Home() {
                       Learn More
                     </button>
                   </div>
-                </div>
+                </div> */}
               </form>
             </div>
           </div>
