@@ -15,7 +15,7 @@ export default function AppNavbar({ token }) {
       variant="dark"
       expand="lg"
       className="shadow-sm"
-    >
+    > 
       <Link to="/">
         <Navbar.Brand>FYP Management System</Navbar.Brand>
       </Link>

@@ -5,11 +5,11 @@ import { Col, Container, Row, Spinner } from "react-bootstrap";
 import { Line, Bar } from "react-chartjs-2";
 
 const lineData = {
-  labels: ["1", "2", "3", "4", "5", "6"],
+  labels: ["PreEval", "Report#1"],
   datasets: [
     {
-      label: "Marks",
-      data: [12, 19, 3, 5, 2, 3],
+      label: "Marks History",
+      data: [12, 99],
       fill: false,
       backgroundColor: "rgb(255, 99, 132)",
       borderColor: "rgba(255, 99, 132, 0.2)",
@@ -18,11 +18,11 @@ const lineData = {
 };
 
 const barData = {
-  labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+  labels: ["PreEval", "Report#1"],
   datasets: [
     {
-      label: "Marks",
-      data: [12, 19, 3, 5, 2, 3],
+      label: "Marks History",
+      data: [12, 99],
       backgroundColor: [
         "rgba(255, 99, 132, 0.2)",
         "rgba(54, 162, 235, 0.2)",

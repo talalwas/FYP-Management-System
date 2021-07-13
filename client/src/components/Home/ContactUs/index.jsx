@@ -15,22 +15,22 @@ export default function ContactUs() {
     <Jumbotron style={{ paddingTop: "0px", backgroundColor: "#ffffff" }}>
       <Container fluid="sm">
         <h1 className="Heading">
-          Still have some <span style={{ color: "#008dc8" }}>Questions</span>?
+          {/* Still have some <span style={{ color: "#008dc8" }}>Questions</span>? */}
         </h1>
         <Row
           className="justify-content-md-center"
           style={{ marginTop: "50px" }}
         >
           <Col md={"auto"} lg={6}>
-            <Image
+            {/* <Image
               src="https://i.postimg.cc/MKQdC2ZH/questions-Form.png"
               alt="QuestionsForm"
               fluid
               //   style={{ width: "100%", height: "auto" }}
-            />
+            /> */}
           </Col>
           <Col lg={5}>
-            <Form>
+            {/* <Form>
               <Form.Group>
                 <Form.Control
                   type="text"
@@ -65,7 +65,7 @@ export default function ContactUs() {
                   Send Message
                 </Button>
               </Form.Group>
-            </Form>
+            </Form> */}
           </Col>
         </Row>
       </Container>

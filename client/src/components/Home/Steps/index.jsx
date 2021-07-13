@@ -85,20 +85,17 @@ const Steps = () => {
   return (
     <Section id="about" style={{ padding: "30px 0 30px" }}>
       <div className="container">
-        <SectionTitle>Lorem ipsum dolor sit amet</SectionTitle>
-        <SubTitle>Lorem ipsum dolor sit amet</SubTitle>
+        <SectionTitle>Final Year Project activities made easier</SectionTitle>
+        {/* <SubTitle>Lorem ipsum dolor sit amet</SubTitle> */}
         <div className="row">
           <div className="col-lg-4">
             <Box data-aos={width >= 1400 ? "fade-right" : "fade-up"}>
               <IconWrap>
                 <Icons />
               </IconWrap>
-              <BoxTitle>Declarative</BoxTitle>
+              <BoxTitle>Simpler</BoxTitle>
               <Text>
-                React makes it painless to create interactive UIs. Design simple
-                views for each state in your application, and React will
-                efficiently update and render just the right components when
-                your data changes.
+                This portal will make it much easier for everyone involved in the FYP process. 
               </Text>
             </Box>
           </div>
@@ -107,11 +104,9 @@ const Steps = () => {
               <IconWrap>
                 <Icons />
               </IconWrap>
-              <BoxTitle>Component-Based</BoxTitle>
+              <BoxTitle>Real Time Communication between Students and Supervisor</BoxTitle>
               <Text>
-                Since component logic is written in JavaScript instead of
-                templates, you can easily pass rich data through your app and
-                keep state out of the DOM.
+               Our Portal includes a chat module which will provides real time communication between students and supervisors to ensure all communication can take place using this portal.
               </Text>
             </Box>
           </div>
@@ -120,11 +115,9 @@ const Steps = () => {
               <IconWrap>
                 <Icons />
               </IconWrap>
-              <BoxTitle>Learn Once, Write Anywhere</BoxTitle>
+              <BoxTitle>Deadlines and Grades</BoxTitle>
               <Text>
-                We don’t make assumptions about the rest of your technology
-                stack, so you can develop new features in React without
-                rewriting existing code.
+                This system will allow straighforward deadlines and grading facilities to supervisors. 
               </Text>
             </Box>
           </div>
