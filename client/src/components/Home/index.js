@@ -54,7 +54,7 @@ function Home() {
                 </div>
               </h1>
             </div>
-            <div className="col-md-10 col-lg-8 col-xl-7 mx-auto">
+            {/* <div className="col-md-10 col-lg-8 col-xl-7 mx-auto">
               <form>
                 <div className="form-row">
                   <div className="col-12 col-md-9 mb-2 mb-md-0">
@@ -74,7 +74,7 @@ function Home() {
                   </div>
                 </div>
               </form>
-            </div>
+            </div> */}
           </div>
         </div>
       </Masthead>
