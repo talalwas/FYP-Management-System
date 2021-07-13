@@ -17,7 +17,7 @@ export default function AppNavbar({ token }) {
       className="shadow-sm"
     >
       <Link to="/">
-        <Navbar.Brand>FYP Mgmt</Navbar.Brand>
+        <Navbar.Brand>FYP Management System</Navbar.Brand>
       </Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">

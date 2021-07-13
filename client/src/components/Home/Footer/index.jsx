@@ -98,7 +98,7 @@ const Footer = (props) => {
               <div className="copyright-text">
                 <p>
                   Copyright © 2021, All Right Reserved{" "}
-                  <a href="/home">fyp-mgmt</a>
+                  <a href="/home">FYP Management System</a>
                 </p>
               </div>
             </div>
